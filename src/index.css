@@ -1,16 +1,13 @@
 .note-content{
-
     width: 600px;
     height: 800px;
     position: fixed;
     left: 45%;
-    /* margin-left: -50px; */
     top: 5%;
-    /* margin-top: -50px; */
     border: 1px solid red;
 }
 
-.centered-element {
+ .centered-element {
     height: 100px;
     width: 100px;
     position: absolute;
@@ -27,11 +24,9 @@
     position: fixed;
     left: 5%;
     top: 5%;
-    
   }
 
   .note-title{
-    
     width: 200px;
     height: 800px;
     border: 1px solid red;
@@ -41,7 +36,7 @@
   }
 
   .show{
-      display: flex;
+    display: flex;
   }
 
   .hide{
@@ -52,6 +47,10 @@
     height: 100%;
   }
 
+  .editorClassName{
+    margin-left: 10px;
+  }
+
   .text-editor{
       height: 100%;
   }
@@ -60,7 +59,7 @@
     margin: 10px;
     background: #c9cece;
     font-size: x-large;
-}
+  }
 
   .new-note{
     position: fixed;
@@ -71,4 +70,4 @@
     border-radius: 5px;
     font-size: large;
     background: #06e882;
-}
+ }
