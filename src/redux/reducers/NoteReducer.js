@@ -1,6 +1,8 @@
 import {
     INIT ,
-    POSTNOTE
+    CREATE_NOTE,
+    UPDATE_NOTE,
+    REMOVE_NOTE
   } from "../actions/actionTypes" ; //No I18N
   
   const initState = {
@@ -12,9 +14,16 @@ import {
   
     switch (action.type) {
   
-      case POSTNOTE:
-        return { notes: [...state.notes , ...action.payload] , status : POSTNOTE };
-  
+      case CREATE_NOTE:
+        return { notes: [...state.notes , action.payload] , status : CREATE_NOTE };
+
+      case UPDATE_NOTE:
+          const index = action.payload.index ;
+          return { 
+            notes: [...state.notes.slice(0,index) , ...action.payload.note , ...state.notes.slice(index + 1)] ,
+            status : UPDATE_NOTE 
+          };
+    
       case INIT:
         return { notes : state.notes , status : INIT };
   

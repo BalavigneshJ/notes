@@ -56,6 +56,12 @@
       height: 100%;
   }
 
+  .type-title{
+    margin: 10px;
+    background: #c9cece;
+    font-size: x-large;
+}
+
   .new-note{
     position: fixed;
     left: 5%;

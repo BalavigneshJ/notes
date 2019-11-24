@@ -1,52 +1,69 @@
-import React , {useState} from 'react';
+import React from 'react';
 import { Editor } from 'react-draft-wysiwyg';
-import { EditorState , convertToRaw , ContentState , convertFromHTML} from 'draft-js';
+import draftToHtml from 'draftjs-to-html';
+import { EditorState , convertToRaw  , ContentState , convertFromHTML} from 'draft-js';
 import "./texteditor.css";
 
+class Textarea extends React.Component {
 
+	constructor(props) {
+		console.log("constructor");
+		super(props);
+		this.state = {value : this.initValue() , toolbarClassName : "show"};
+		this.handleChange = this.handleChange.bind(this) ;
+		this.sendData = this.sendData.bind(this);
+	}
 
-function Textarea(props){
-
-	const initValue = function(){
+	initValue() {
+		 let val = convertFromHTML('<h1>My Note</h1>') ;
 		 return EditorState.createWithContent(
-		  ContentState.createFromBlockArray(
-			convertFromHTML('<h1>My Note</h1>')
-		  )
+		  ContentState.createFromBlockArray(val)
 		)
 	}
 
-	const [value , setValue] = useState(initValue);
+	componentWillReceiveProps(nextProps){
+		if(nextProps.note.note){	
+			let val = convertFromHTML(draftToHtml(nextProps.note.note));
+			let content = EditorState.createWithContent(ContentState.createFromBlockArray(val));
+			this.setState({value : content})
+			return true ;
+		}else{
+			return false ;
+		}
+	}
 
-	const [toolbarClassName , setToolbarClassName] = useState("show");
-
-	const handleChange = function(editorState){
-		setValue(editorState)
+	handleChange(editorState){
+		this.setState({value : editorState})
 	}
 	
-	const sendData = function(){
-		props.sendNote(convertToRaw(value.getCurrentContent()));
+	sendData(){
+		this.props.sendNote(convertToRaw(this.state.value.getCurrentContent()));
 	}
 
-	const focus = function(){
-		setToolbarClassName("show")
+	focus (){
+		this.setState({toolbarClassName : "show"}) ;
 	}
 
-	const blur = function(){
-		setToolbarClassName("hide")
+	blur(){
+		this.setState({toolbarClassName : "show"}) ;
 	}
 
-	return(
-		<div onBlur={sendData} className="text-editor">
-			<Editor
-  				editorState={value}
-				toolbarClassName={toolbarClassName}
-				wrapperClassName="wrapperClassName"
-				editorClassName="editorClassName"
-				onEditorStateChange={handleChange}
-				placeholder="Content"
-			/>
-		</div>
-	)
+	render(){
+		return(
+			<div onBlur={this.sendData} className="text-editor">
+				<Editor
+					editorState={this.state.value}
+					toolbarClassName={this.state.toolbarClassName}
+					wrapperClassName="wrapperClassName"
+					editorClassName="editorClassName"
+					onEditorStateChange={this.handleChange}
+					placeholder="Content"
+				/>
+			</div>
+		)
+	}
+
 }
+
 
 export default Textarea ;
