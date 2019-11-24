@@ -4,7 +4,7 @@
     position: fixed;
     left: 45%;
     top: 5%;
-    border: 1px solid red;
+    border: 1px solid #c9cece;;
 }
 
  .centered-element {
@@ -20,7 +20,7 @@
   .note-type{
     width: 200px;
     height: 800px;
-    border: 1px solid red;
+    border: 1px solid #c9cece;;
     position: fixed;
     left: 5%;
     top: 5%;
@@ -29,7 +29,7 @@
   .note-title{
     width: 200px;
     height: 800px;
-    border: 1px solid red;
+    border: 1px solid #c9cece;;
     position: fixed;
     left: 25%;
     top: 5%;
