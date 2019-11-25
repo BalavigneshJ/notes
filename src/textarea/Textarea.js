@@ -7,7 +7,6 @@ import "./texteditor.css";
 class Textarea extends React.Component {
 
 	constructor(props) {
-		console.log("constructor");
 		super(props);
 		this.state = {value : this.initValue() , toolbarClassName : "show"};
 		this.handleChange = this.handleChange.bind(this) ;
@@ -22,7 +21,7 @@ class Textarea extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps){
-		if(nextProps.note.note){	
+		if(nextProps.note && nextProps.note.note){	
 			let val = convertFromHTML(draftToHtml(nextProps.note.note));
 			let content = EditorState.createWithContent(ContentState.createFromBlockArray(val));
 			this.setState({value : content})

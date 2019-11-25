@@ -20,7 +20,7 @@ import {
       case UPDATE_NOTE:
           const index = action.payload.index ;
           return { 
-            notes: [...state.notes.slice(0,index) , ...action.payload.note , ...state.notes.slice(index + 1)] ,
+            notes: [...action.payload.note , ...state.notes.slice(0,index) ,  ...state.notes.slice(index + 1)] ,
             status : UPDATE_NOTE 
           };
     

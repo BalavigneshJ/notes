@@ -59,6 +59,10 @@
     margin: 10px;
     background: #c9cece;
     font-size: x-large;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
   }
 
   .new-note{

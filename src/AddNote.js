@@ -8,7 +8,6 @@ import Textarea from './textarea/Textarea';
 class AddNote extends React.Component {
 
     constructor(props) {
-		console.log("constructor");
 		super(props);
 		this.state = {type : "My Notes" , title : "" , note:"",selectedIndex:0};
 		this.addNote = this.addNote.bind(this) ;
@@ -113,7 +112,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 const mapStateToProps = (state)=> {
-    console.log("state======>>>>",state);
     return {
       notes: state.Notes.notes ,
       status : state.Notes.status 
