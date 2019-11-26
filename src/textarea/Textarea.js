@@ -32,11 +32,14 @@ class Textarea extends React.Component {
 	}
 
 	handleChange(editorState){
+		console.log("handleChange");
 		this.setState({value : editorState})
 	}
 	
 	sendData(){
-		this.props.sendNote(convertToRaw(this.state.value.getCurrentContent()));
+		let val = convertToRaw(this.state.value.getCurrentContent()) ;
+		console.log("sendData" ,val);
+		this.props.sendNote(val);
 	}
 
 	focus (){
@@ -44,7 +47,8 @@ class Textarea extends React.Component {
 	}
 
 	blur(){
-		this.setState({toolbarClassName : "show"}) ;
+		console.log("onBlur");
+		//this.setState({toolbarClassName : "show"}) ;
 	}
 
 	render(){
@@ -57,6 +61,7 @@ class Textarea extends React.Component {
 					editorClassName="editorClassName"
 					onEditorStateChange={this.handleChange}
 					placeholder="Content"
+					onBlur={this.blur}
 				/>
 			</div>
 		)

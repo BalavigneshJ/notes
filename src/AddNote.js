@@ -79,7 +79,7 @@ class AddNote extends React.Component {
         }) :  <TypeText key={0} index={0} initVal={"My Note"}/>
         
         return(
-            <div>
+            <div className="note-book">
                <button className="new-note" onClick={this.addNote}>New Note</button>
                <div className="note-type">
                  <TypeText sendTypeText={this.getType} initVal={this.state.type}/>

@@ -1,10 +1,10 @@
 .note-content{
-    width: 600px;
-    height: 800px;
+    width: 52%;
+    height: 90%;
     position: fixed;
     left: 45%;
-    top: 5%;
-    border: 1px solid #c9cece;;
+    top: 6%;
+    border: 1px solid #c9cece;
 }
 
  .centered-element {
@@ -18,21 +18,21 @@
   }
 
   .note-type{
-    width: 200px;
-    height: 800px;
-    border: 1px solid #c9cece;;
+    width: 20%;
+    height: 90%;
+    border: 1px solid #c9cece;
     position: fixed;
-    left: 5%;
-    top: 5%;
+    left: 3%;
+    top: 6%;
   }
 
   .note-title{
-    width: 200px;
-    height: 800px;
+    width: 20%;
+    height: 90%;
     border: 1px solid #c9cece;;
     position: fixed;
-    left: 25%;
-    top: 5%;
+    left: 24%;
+    top: 6%;
   }
 
   .show{
@@ -67,10 +67,10 @@
 
   .new-note{
     position: fixed;
-    left: 5%;
-    top: 1%;
+    left: 3%;
+    top: 1.5%;
     width: 100px;
-    height: 25px;
+    height: 3%;
     border-radius: 5px;
     font-size: large;
     background: #06e882;

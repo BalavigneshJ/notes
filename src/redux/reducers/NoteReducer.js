@@ -18,6 +18,7 @@ import {
         return { notes: [...state.notes , action.payload] , status : CREATE_NOTE };
 
       case UPDATE_NOTE:
+          console.log("...action.payload.note",...action.payload.note);
           const index = action.payload.index ;
           return { 
             notes: [...action.payload.note , ...state.notes.slice(0,index) ,  ...state.notes.slice(index + 1)] ,
